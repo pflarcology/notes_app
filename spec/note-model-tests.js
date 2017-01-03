@@ -9,5 +9,6 @@ function testNoteIsReturned() {
   assert.isTrue(note.showText() === "I am undecided on my favourite programming language", "Test note is returned")
 }
 
+
 testNoteIsStored();
 testNoteIsReturned();
