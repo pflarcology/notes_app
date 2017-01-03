@@ -1,6 +1,7 @@
-function Circle(){
-  this.radius = 10;
+function Note(text) {
+  this.noteText = text;
 }
-Circle.prototype.radius = function(){
-return this.radius;
-}
+
+Note.prototype.showNoteText = function() {
+  return this.noteText;
+};
