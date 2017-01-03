@@ -1,11 +1,13 @@
 (function(exports) {
-  function Notes (text) {
+  function Note (text) {
     this.text = text;
   }
-  Notes.prototype = {
+
+  Note.prototype = {
     showText: function() {
       return this.text;
-    }}
+    }
+  };
 
-  exports.Notes = Notes;
+  exports.Note = Note;
 })(this);

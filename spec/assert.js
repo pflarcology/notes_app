@@ -4,7 +4,7 @@ var assert = {
       throw new Error("Assertion failed: " + nameOfAssertion + " is not truthy");
     }
     else {
-      console.log(nameOfAssertion + " passes")
+      console.log(nameOfAssertion + " passes");
     }
   }
 };
