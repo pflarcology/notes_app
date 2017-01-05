@@ -10,14 +10,14 @@ function testListViewModelInstantiatesWithNoteListModel() {
   assert.isTrue(noteListView.noteListModel === noteListModel, "testListViewModelInstantiatesWithNoteListModel");
 }
 
-function testReturnHtml(){
+function testReturnHtmlFirst20(){
   var noteListModel = new NoteList();
-  noteListModel.createNote("Favourite food: pesto");
+  noteListModel.createNote("Favourite food: chocolate cake");
   var noteListView = new NoteListView(noteListModel);
   console.log("testReturnHtml")
-  assert.isTrue(noteListView.returnsHtmlList()=== "<ul><li><div>Favourite food: pesto</li></div></ul>", "testReturnHtml")
+  assert.isTrue(noteListView.returnsHtmlList()=== "<ul><li><div>Favourite food: choc</li></div></ul>", "testReturnHtml", "testReturnHtmlFirst20")
 }
 
 testListViewModelIsInstantiated();
 testListViewModelInstantiatesWithNoteListModel();
-testReturnHtml();
+testReturnHtmlFirst20();
