@@ -1,6 +1,6 @@
 (function(exports) {
-  function SingleNoteView() {
-    // this.noteModel = new noteModel;
+  function SingleNoteView(note) {
+    this.note = new Note;
   };
 
   exports.SingleNoteView = SingleNoteView;

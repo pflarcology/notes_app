@@ -11,6 +11,20 @@ function testSingleNoteView () {
 
 }
 
+function testSingleNoteViewInstantiatesWithANoteModel() {
+  function NoteDouble(text) {};
+  NoteDouble.prototype = {
+    showNoteText: function() {
+      return "I am trapped in a computer"
+    }
+  };
+  var noteDouble = new NoteDouble();
+  var singleNoteView = new SingleNoteView(noteDouble);
+  singleNoteView.note = noteDouble;
+  assert.isTrue(singleNoteView.note === noteDouble, "testSingleNoteViewInstantiatesWithANoteModel")
+};
+
 
 
 testSingleNoteView();
+testSingleNoteViewInstantiatesWithANoteModel();
