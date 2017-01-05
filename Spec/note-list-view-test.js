@@ -15,7 +15,7 @@ function testReturnHtmlFirst20(){
   noteListModel.createNote("Favourite food: chocolate cake");
   var noteListView = new NoteListView(noteListModel);
   console.log("testReturnHtml")
-  assert.isTrue(noteListView.returnsHtmlList()=== "<ul><li><div>Favourite food: choc</li></div></ul>", "testReturnHtml", "testReturnHtmlFirst20")
+  assert.isTrue(noteListView.returnsHtmlList()=== "<ul><li><a href='#notes/5'><div>Favourite food: choc</div></a></li></ul>", "testReturnHtml", "testReturnHtmlFirst20")
 }
 
 testListViewModelIsInstantiated();
