@@ -1,14 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <script src="Src/note-model.js"></script>
+  <script src="Src/note-list-model.js"></script>
+  <script src="Src/note-list-view.js"></script>
+  <script src="Src/single-note-view.js"></script>
+  <script src='Src/note-controller.js'></script>
+  <script src="index.js"></script>
 </head>
 <body>
-<div id="app">hello</div>
-<script src="Src/note-model.js"></script>
-<script src="Src/note-list-model.js"></script>
-<script src="Src/note-list-view.js"></script>
-<script src="Src/single-note-view.js"></script>
-<script src='Src/note-controller.js'></script>
-<script src="index.js"></script>
+
+  <form method='post' action='#'>
+    <textarea id="text"></textarea><br>
+    <input type='submit' value='add note'></input>
+  </form>
+
+  <div id="app">Hello</div>
+
 </body>
 </html>
