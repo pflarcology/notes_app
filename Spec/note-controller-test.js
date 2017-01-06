@@ -34,6 +34,18 @@ function testGettingIdFromUrl() {
   assert.isTrue(noteController.getIdFromUrl() === "0", "testGettingIdFromURL");
 };
 
+function testGetNoteUsingId() {
+  var noteListViewDouble = {returnsHtmlList: function(){return "<ul><li><a id='link-0' href='#0'><div>Favourite food: choc</div></a></li></ul>"}};
+  var noteDouble = {showText: function(){return "Favourite food: chocolate cake"}};
+  var noteListDouble = {noteListArray: [noteDouble]};
+  var noteController = new NoteController();
+  noteController.noteListView = noteListViewDouble;
+  noteController.noteList = noteListDouble
+  document.getElementById('link-0').click();
+  assert.isTrue(noteController.returnsNoteFromId().showText() === "Favourite food: chocolate cake", "testGetNoteUsingId")
+}
+
 testNoteControllerCanBeInstantiated();
 testInnerHtml();
 testGettingIdFromUrl();
+testGetNoteUsingId();

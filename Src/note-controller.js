@@ -19,6 +19,9 @@
     return (window.location.hash.split("#")[1])
   }
 
+  NoteController.prototype.returnsNoteFromId = function() {
+    return this.noteList.noteListArray[this.getIdFromUrl()];
+  }
 
 
 
