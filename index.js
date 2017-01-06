@@ -7,6 +7,6 @@ window.onload = function() {
   window.addEventListener("hashchange", function() { noteController.updateSingleNote()});
   window.addEventListener("submit", function(submit) {
     submit.preventDefault();
-    console.log("hello");
+    console.log(submit)
   })
 }
