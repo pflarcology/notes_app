@@ -16,19 +16,26 @@
   };
 
   NoteController.prototype.makeNoteLinkShowFullNote = function () {
-    window.addEventListener("hashchange", findNoteFromNoteList);
+    window.addEventListener("hashchange", function() {noteController.createSingleNote()});
   };
 
-  // NoteController.prototype.showNoteForCurrentPage = function () {
-  //   showNote(getNoteFromURL());
-  // };
-
-   NoteController.prototype.getNoteIdFromURL = function(){
+  NoteController.prototype.getNoteIdFromURL = function(){
     return window.location.hash.split("#")[1];
   };
-NoteController.prototype.findNoteFromNoteList = function(){
-  var idFromURL = parseInt(noteController.getNoteIdFromURL());
-  var singleNoteView = new SingleNoteView(noteList.noteList[0]);
-};
+
+  NoteController.prototype.findNoteFromNoteList = function(){
+    return this.noteList.noteListArray[noteController.getNoteIdFromURL()];
+  };
+
+  NoteController.prototype.createSingleNote = function() {
+    var singleNoteView = new SingleNoteView(noteController.findNoteFromNoteList());
+    noteController.modifyHtml(singleNoteView.returnSingleNoteHtml());
+  }
+
+  NoteController.prototype.modifyHtml = function(string) {
+    html = document.getElementById("app");
+    html.innerHTML = string
+  }
+
   exports.NoteController = NoteController;
 })(this);

@@ -1,15 +1,15 @@
 (function(exports) {
   function NoteList() {
-    this.noteList = new Array;
+    this.noteListArray = new Array;
   };
 
 NoteList.prototype.returnList = function(){
-  return this.noteList;
+  return this.noteListArray;
 }
 
 NoteList.prototype.createNote = function(text) {
   note = new Note(text);
-  this.noteList.push(note);
+  this.noteListArray.push(note);
 }
 
   exports.NoteList = NoteList;
