@@ -5,4 +5,8 @@ window.onload = function() {
   noteController.createNote("im pairing with russel today and it is great");
   noteController.getHtml(this.noteListView.returnsHtmlList());
   window.addEventListener("hashchange", function() { noteController.updateSingleNote()});
+  window.addEventListener("submit", function(submit) {
+    submit.preventDefault();
+    console.log("hello");
+  })
 }
