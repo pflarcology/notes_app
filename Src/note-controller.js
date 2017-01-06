@@ -1,8 +1,8 @@
 (function(exports) {
 
-  function NoteController(){
-    this.noteList = new NoteList();
-    this.noteListView = new NoteListView(this.noteList);
+  function NoteController(noteList, noteListView){
+    this.noteList = noteList;
+    this.noteListView = noteListView;
   };
 
   NoteController.prototype.createNote = function(text){
@@ -10,18 +10,28 @@
     return this.noteList.returnList();
   };
 
-  NoteController.prototype.getHtml = function(){
+  NoteController.prototype.getHtml = function(string){
     html = document.getElementById("app");
-    html.innerHTML = this.noteListView.returnsHtmlList();
+    html.innerHTML = string;
   };
 
   NoteController.prototype.getIdFromUrl = function() {
-    return (window.location.hash.split("#")[1])
-  }
+    return (window.location.hash.split("#")[1]);
+  };
 
   NoteController.prototype.returnsNoteFromId = function() {
     return this.noteList.noteListArray[this.getIdFromUrl()];
-  }
+  };
+
+  NoteController.prototype.getSingleNote = function() {
+    var singleNoteView = new SingleNoteView(this.returnsNoteFromId());
+    return singleNoteView.returnSingleNoteHtml();
+  };
+
+
+  NoteController.prototype.updateSingleNote = function() {
+    this.getHtml(this.getSingleNote());
+  };
 
 
 
