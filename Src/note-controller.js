@@ -15,27 +15,12 @@
     html.innerHTML = this.noteListView.returnsHtmlList();
   };
 
-  NoteController.prototype.makeNoteLinkShowFullNote = function () {
-    window.addEventListener("hashchange", function() {noteController.createSingleNote()});
-  };
-
-  NoteController.prototype.getNoteIdFromURL = function(){
-    return window.location.hash.split("#")[1];
-  };
-
-  NoteController.prototype.findNoteFromNoteList = function(){
-    return this.noteList.noteListArray[noteController.getNoteIdFromURL()];
-  };
-
-  NoteController.prototype.createSingleNote = function() {
-    var singleNoteView = new SingleNoteView(noteController.findNoteFromNoteList());
-    noteController.modifyHtml(singleNoteView.returnSingleNoteHtml());
+  NoteController.prototype.getIdFromUrl = function() {
+    return (window.location.hash.split("#")[1])
   }
 
-  NoteController.prototype.modifyHtml = function(string) {
-    html = document.getElementById("app");
-    html.innerHTML = string
-  }
+
+
 
   exports.NoteController = NoteController;
 })(this);
